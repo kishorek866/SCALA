@@ -1,0 +1,54 @@
+// If you want to modify your List then you can go with Listbuffer
+//Because ListBuffer is mutable so yo can able to add/modify the values.
+// Finally we will convert to List
+
+import scala.collection.mutable.ListBuffer // We have to import this package to use ListBuffer
+
+object Helloworld {
+  
+ def main(args: Array[String]){
+
+ val a = ListBuffer(1,2,3,4,5) //Here i am creating the ListBuffer with some values
+ println(a) // ListBuffer(1, 2, 3, 4, 5)
+ a+=(6) //Here i am adding value 6 in (a)
+ println(a) // ListBuffer(1, 2, 3, 4, 5, 6)
+ a+=(7,8,9,10) // We can able to add more than one values in (a)
+ println(a) // ListBuffer(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+ a-=(10) //Here i am deleting value 10 in (a)
+ println(a)// ListBuffer(1, 2, 3, 4, 5, 6, 7, 8, 9)
+ a-=(8,9)//We can also delete more than one values in (a)
+ println(a) // ListBuffer(1, 2, 3, 4, 5, 6, 7)
+ val b = a.toList // Here i am converting ListBuffer to List
+ println(b) // List(1, 2, 3, 4, 5, 6, 7)
+// b+=(8) // Now we cannot add or delete values in (b) because we have converted to List.  
+//Now we will perform some option in List
+ val c = b.reverse // To print in reverse order
+ println(c) // List(7, 6, 5, 4, 3, 2, 1)
+ val d = b.filter(_>3) // It will display the values which are greater than 3
+ println(d) // List(4, 5, 6, 7)
+ val e = List.fill(3)("A","B","C") // It will create a list with A,B,C three time
+ println(e) // List((A,B,C), (A,B,C), (A,B,C))
+ println(e.distinct)// It will print unique value in the list
+
+b.foreach(println) // here i am iterating the List
+
+/* Output
+1
+2
+3
+4
+5
+6
+7
+*/
+
+// We can change the value using index 
+
+ val test = ListBuffer(1,2,3)
+ println(test) // ListBuffer(1, 2, 3)
+ test(1)=20  // Here am changing the value of 1st index
+ println(test) // ListBuffer(1, 20, 3)
+ 
+} }
+
+

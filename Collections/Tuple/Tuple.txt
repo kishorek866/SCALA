@@ -1,0 +1,43 @@
+// Tuple can contain elements of different data type
+// Tuple is immutable as structure and as value
+// You can assign names to the values in the tuple.
+
+object Helloworld {
+  
+ def main(args: Array[String]){
+      val a = (10,20,30,"A","B") // Here i am creating tuple with some values
+      println(a) // (10,20,30,A,B)
+      
+      // We can access the tuple values using below syntax
+      println(a._1) // 10
+      println(a._2) // 20
+      println(a._3) // 30
+      println(a._4) // A
+      println(a._5) // B
+      
+      // To assign names to the values in the tuple. 
+      def UserInfo = ("Kishore", 23, 75) // Here i am creating one method, it will return a tuple 
+      val(name, age, weight) = UserInfo  // Here i am assigning the method to my variables
+      println(s"Name: $name Age: $age Weight: $weight") // Name: Kishore Age: 23 Weight: 75
+      def UserInfo1 = ("Kumar", 24, 75)  // Here i am creating one more tuple
+      val(name1, age1,_) = UserInfo1  //If you only want to access some of the elements, you can ignore the others
+      // by using an underscore placeholder for the elements you want to ignore. Here i am ignoring 3rd values (75)
+      println(s"Name: $name1 Age: $age1") // Name: Kumar Age: 24
+      
+      // Here i am iterating the values from (a). productIterator will give access for "foreach" in Tuple
+      a.productIterator.foreach(println)  
+     /* 
+      
+     10
+     20
+     30
+     A
+     B
+		
+    */
+ }
+
+}
+
+
+

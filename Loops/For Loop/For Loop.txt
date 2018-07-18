@@ -1,0 +1,72 @@
+// For Loop
+//You can loop over any element using a for loop:
+// We can use either For loop or Foreach to iterate
+// We can write our own expression inside the for loop
+//We can write for loop in any way .see more example below
+
+object Helloworld {
+  
+ def main(args: Array[String]){
+   val a = List(1,2,3,4,5)
+   
+  for (x <- a) {
+    println(x)
+  } 
+   /*
+1
+2
+3
+4
+5
+  */
+  for (x <- a) println(x)
+   /*
+1
+2
+3
+4
+5
+  */
+ for (x <- a) {
+    val square = x * x
+    println(square)
+  } 
+  /*
+1
+4
+9
+16
+25   
+  */
+
+   for (x <- a if x % 2 == 0) println(x)
+   
+   /*
+2
+4
+   */
+       
+   a.foreach(println)
+   
+ /*
+1
+2
+3
+4
+5
+  */
+  a.foreach(e=>println(e*e))
+  /*
+1
+4
+9
+16
+25
+ 	*/
+  
+    
+  
+}
+ }
+
+

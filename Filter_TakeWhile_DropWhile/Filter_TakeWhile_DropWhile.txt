@@ -1,0 +1,23 @@
+//Filter returns all the elements that satisfy 
+//takeWhile returns the longest prefix whose elements satisfy 
+//dropWhile take the reminder of a sequence starting with first element that doesn't satisfy
+
+
+object Helloworld {
+  
+ def main(args: Array[String]){
+  val a = List(1,5,3,2,1,4,6,7) // Here i am creating a list with some values to explain below
+  println(a) // List(1, 5, 3, 2, 1, 4, 6, 7)
+  
+  // In below we are trying to filter only odd numbers from the list using filter,takeWhile and dropwhile
+  
+  val b = a.filter(_%2==1) 
+  println(b) // List(1, 5, 3, 1, 7)
+  val c = a.takeWhile(_%2==1) 
+  println(c) // List(1, 5, 3)
+  val d = a.dropWhile(_%2==1) 
+  println(d) //List(2, 1, 4, 6, 7)
+}
+ }
+
+

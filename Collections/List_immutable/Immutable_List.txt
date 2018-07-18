@@ -1,0 +1,46 @@
+// Lists are immumatable 
+// All the elements of a list have the same data type
+// List contains duplicate elements
+
+object Helloworld {
+  
+ def main(args: Array[String]){
+   val test=List() // To create an empty list
+   println(test) // List()
+   val test1 = Nil // This will also create empty list 
+   println(test1) // List()
+   val a = List(10,20,30,40,50) // Creating a new list with values
+   println(a) // List(10, 20, 30, 40, 50) 
+   println(a.indexOf(40)) //3  // To get the index value of 40
+   println(a(0)) //10 
+   // By using index we can access the value. Index always starts from "0" 
+   println(a(1)) //20
+   println(a.head) // 10 //It will print only first value
+   println(a.tail) // List(20, 30, 40, 50) // It will print all the values except first value
+   val b =60::70::80::a //To append new values in (a) but it will not modify List(a).Since list is immutable
+   // it will return a new list (b). (::) CONS operator
+   println(b) //List(60, 70, 80, 10, 20, 30, 40, 50)
+   val c = b.reverse // To print the values in reverse order
+   println(c) //List(50, 40, 30, 20, 10, 80, 70, 60)
+   val d = b.sorted // To print the list in ascending order
+   println(d) // List(10, 20, 30, 40, 50, 60, 70, 80)
+   val e = b.sorted(Ordering.Int.reverse) // To print the list in descending order
+   println(e) // List(80, 70, 60, 50, 40, 30, 20, 10)
+   val f = List("ABC", "DEFG", "HI", "JKLMN","OPQ")
+   val g = f.sortWith((x, y) => x.length() < y.length()) //Sort list by lengths of strings.
+   println(g) //List(HI, ABC, OPQ, DEFG, JKLMN)
+   val h = a.takeRight(3) // To take last three value in List(a)
+   println(h) // List(30, 40, 50)
+   val i = a.take(3) // To take first three value in List(a)
+   println(i) // List(10, 20, 30)
+   val j = a.slice(1,4) // we can extract values from 1st index to 3rd index.
+   println(j) // List(20, 30, 40)
+   val k = a.take(2)++a.takeRight(1) //here i am ignoring/delteing (30 and 40)
+   println(k) //List(10, 20, 50)
+   val l = a.last // To print the last value
+   println(l) // 50
+   
+   
+} }
+
+

@@ -1,0 +1,51 @@
+// ArrayBuffer is mutable
+//you can change the values in the collection, and resize the collection
+// you can access elements quickly by their element number,such as (e.g) a(895636) but a linked list would be very slow for this purpose
+
+import scala.collection.mutable.ArrayBuffer // We have to import this package to use ArrayBuffer
+
+object Helloworld {
+  
+ def main(args: Array[String]){
+  val a = ArrayBuffer(1,2,3,4,5) 
+  println(a) // ArrayBuffer(1, 2, 3, 4, 5)
+  a+=(6,7,8,9) // We can able to add values in (a)
+  println(a) // ArrayBuffer(1, 2, 3, 4, 5, 6, 7, 8, 9)
+  a-=(8,9) // We can also delete values in (a)
+  println(a) // ArrayBuffer(1, 2, 3, 4, 5, 6, 7)
+  val b = (1 to 5).toBuffer // Here i am using range function in ArrayBuffer 
+  println(b) // ArrayBuffer(1, 2, 3, 4, 5)
+  val c = (1 until 5).toBuffer // Here i am using until function note: it will exclude the last value
+  println(c) // ArrayBuffer(1, 2, 3, 4)
+  val d = ('A' to 'D').toBuffer // Here i am using character in range function
+  println(d) // ArrayBuffer(A, B, C, D)
+  a.trimStart(2) // It will delete first two values in (a) because i gave 2 inside the bracket 
+  println(a) // ArrayBuffer(3, 4, 5, 6, 7)
+  a.trimEnd(2) // It will  delete last two values in (a) because i gave 2 inside the bracket 
+  println(a) // ArrayBuffer(3, 4, 5)
+  
+  val test = ArrayBuffer(10,20,30,40,50,60,70,80,90,100) // Here i am creating a new ArrayBuffer
+  println(test) //ArrayBuffer(10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
+   val e = test.dropWhile(_ < 60) // it will return the values which is greater than or equal to 60 
+  println(e) // ArrayBuffer(60, 70, 80, 90, 100)
+  val f = test.dropWhile(_ <= 60) // it will return the values which is greater than 60 
+  println(f) // ArrayBuffer(70, 80, 90, 100)
+  val g = test.takeWhile(_ < 60) // it will return the values which is lesser than 60 
+  println(g) // ArrayBuffer(10, 20, 30, 40, 50)
+  val h = test.takeWhile(_ <= 60) // it will return the values which is lesser than or equal to 60 
+  println(h) // ArrayBuffer(10, 20, 30, 40, 50,60)
+  test(8) = 900 // We can modify the values using index value
+  println(test) // ArrayBuffer(10, 20, 30, 40, 50, 60, 70, 80, 900, 100)
+  val i = a++test // Here i am merging two ArrayBuffer into new ArrayBuffer
+  println(i) // ArrayBuffer(3, 4, 5, 10, 20, 30, 40, 50, 60, 70, 80, 900, 100)
+  val j = i.toArray // We can convert to array
+  println(j.mkString(",")) // 3,4,5,10,20,30,40,50,60,70,80,900,100
+  val k = i.toList // We can also convert to List
+  println(k) // List(3, 4, 5, 10, 20, 30, 40, 50, 60, 70, 80, 900, 100)
+  val l = i.toSet // We can also convert to Set
+  println(l)// Set(5, 10, 20, 60, 70, 900, 3, 80, 50, 40, 30, 4, 100)
+  
+}
+ }
+
+

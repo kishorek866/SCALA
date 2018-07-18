@@ -1,0 +1,50 @@
+// Regular expression
+// Trim - It will Remove leading and trailing spaces
+// replaceAll(" +", " ")  - It will covert more than one whitespace into onespace
+//replaceAll(regex, replacement) - syntax
+
+
+object Helloworld {
+  
+ def main(args: Array[String]){
+      val a =  "One (*1) Two (#2) Three (%3) Four(^4) Five (&5) Six (!6)" // Here i am creating a sample string
+      println(a) // One (*1) Two (#2) Three (%3) Four(^4) Five (&5) Six (!6)
+      val b = a.replaceAll("[^a-zA-Z]"," ").trim.replaceAll(" +", " ")  // Here i am extracting only alphabets from (a)
+      println(b) // One Two Three Four Five Six
+      val c = a.replaceAll("[a-zA-Z]"," ").trim.replaceAll(" +", " ") //Here i am extracting without alphabets from (a)
+      println(c) // (*1) (#2) (%3) (^4) (&5) (!6)
+      val d = a.replaceAll("[*#%^&!]","").trim.replaceAll(" +", " ") // Here i am removing special characters
+      println(d) // One (1) Two (2) Three (3) Four(4) Five (5) Six (6)
+      val e = d.replaceAll("[() ]"," ").trim.replaceAll(" +", " ") // Here i am removing "()" brackets 
+      println(e) // One 1 Two 2 Three 3 Four 4 Five 5 Six 6
+      val f = a.replaceAll("[\\D]"," ").trim.replaceAll(" +", " ") // Here i am extracting only digits(numeric values)
+      println(f) // 1 2 3 4 5 6
+      val g = a.replaceAll("[^\\D]","").trim.replaceAll(" +", " ") // Here i am extracting without numeric values 
+      println(g) // One (*) Two (#) Three (%) Four(^) Five (&) Six (!) 
+      val h = a.replaceAll("One","").trim                         // Here i am removing "One" from (a)
+      println(h) // (*1) Two (#2) Three (%3) Four(^4) Five (&5) Six (!6)
+      val i = a.replaceAll("[One]"," ").trim.replaceAll(" +", " ") // This is not recommendable to remove exact word "One"
+      println(i) // (*1) Two (#2) Thr (%3) Four(^4) Fiv (&5) Six (!6)
+      val j = a.split("[\\D]").filter(_.nonEmpty).toList // Here i am extracting only numeric and converting to List
+      println(j) // List(1, 2, 3, 4, 5, 6)List(1, 2, 3, 4, 5, 6)
+      val k = a.split("[^a-zA-Z]").filter(_.nonEmpty).toList //Here i am extracting only alphabets and converting to List
+      println(k) // List(One, Two, Three, Four, Five, Six)
+      
+ // Another approach to remove number or character from a string 
+      
+      
+      val test = "One 1 Two 2 Three 3"
+      val regex_num = "[0-9]".r  
+      val regex_char = "[a-zA-Z]".r
+      val l = regex_num.replaceAllIn(test,"*")
+      println(l) // One * Two * Three *
+      val m = regex_char.replaceAllIn(test,"*")
+      println(m) // *** 1 *** 2 ***** 3
+      
+ 
+ }
+
+}
+
+
+

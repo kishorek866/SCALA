@@ -1,0 +1,28 @@
+import scala.collection.mutable
+//NOTE: import scala.collection.mutable.Set  -if you use this it will convert all objects to mutable
+//so this is not recommendable
+
+// Set will not contain duplicate value
+// Set will not maintain order 
+
+object Helloworld {
+
+  def main(args: Array[String]){
+   val a = mutable.Set(1,2,3,4,5,6)  // Here we converted to mutable
+   println(a)  //Set(1, 5, 2, 6, 3, 4)
+   a+=(7) // Now we can able to add new value in (a) because we have imported mutable package.
+   println(a) // Set(1, 5, 2, 6, 3, 7, 4)
+   a+=(8,9) // We can able to add more than 1 value
+   println(a) // Set(9, 1, 5, 2, 6, 3, 7, 4, 8)
+   a-=9 // We can able to delete value since now Set (a) is mutable
+   println(a) // Set(1, 5, 2, 6, 3, 7, 4, 8)
+   a-=(7,8) // We can able to delete more than 1 value
+   println(a) // Set(1, 5, 2, 6, 3, 4)
+   a.remove(6) // We can use remove also to delete 
+   println(a) // Set(1, 5, 2, 3, 4)
+   a.update(15,true) // we can use update to add value but we can't be able to more than one value
+   println(a)
+   
+  } }
+
+

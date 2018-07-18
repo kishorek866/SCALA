@@ -1,0 +1,59 @@
+object Helloworld {
+
+  def main(args: Array[String]){
+    val a = Set("A","B","C") 
+    println(a);  // Set(A, B, C)
+    val b = Set("D","E") 
+    println(b); //Set(D, E)
+    a+("F"); // Here i tried to add one new value in (a) but its not working. 
+    //Since default scala sets are immutable
+    println(a); //Set(A, B, C)
+    val c = a+("F") //now i can able to add new value with the help of new variable
+    //But keep in mind it will not affect (a)
+    println(c); // Set(A, B, C, F)
+    val d = a+("G","H") // Here i am appending two values 
+    // Set does not maintain order
+    println(d); // Set(A, G, B, C, H)
+    val e = d-("H","A") // Here i am deleting "H" and "A" in variable (d)
+    println(e);
+    val f =a+("C") // Set does not contain duplicate values
+    println(f); // Set(A, B, C)
+    val g = a++b; //To combine two Set
+    println(g); // Set(E, A, B, C, D)
+    val h = a.contains("B") // to check whether the element was already in the set
+    //if present it will return true 0r false
+    println(h); //true
+    val i = a.contains("BB")
+    println(i); //false
+    val num = Set(1,2,3,4,5,6,7,8,9,10,11)
+    val num1 = Set(5,6,8,32,43,8,7,11,54)
+    println(num) // Set(5, 10, 1, 6, 9, 2, 7, 3, 11, 8, 4)
+    val j = num.filter(_>5) // To extract values which is greater than 5 
+    println(j) // Set(10, 6, 9, 7, 11, 8)
+    val k = num.sum
+    println(k) // 65
+    val l = num.union(num1) // Union operation
+    println(l) // Set(5, 10, 1, 6, 9, 2, 32, 54, 7, 3, 11, 43, 8, 4)
+    val m = num.intersect(num1) //intersect operation
+    println(m) //Set(5, 6, 7, 11, 8)
+    val n = num.diff(num1) // to check the difference 
+    println(n) //Set(10, 1, 9, 2, 3, 4)
+    val o = num1.diff(num) // to check the difference
+    println(o) //Set(32, 54, 43)
+    num.foreach(println) // To iterate the elements
+/*
+5
+10
+1
+6
+9
+2
+7
+3
+11
+8
+4
+*/
+  } }
+
+
